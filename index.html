@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>7 de Abril - Dia Nacional de Combate ao Bullying</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #FFA500;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(43, 30, 15, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 165, 0, 0.9);
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .date {
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        #frase {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn-nova-frase {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-nova-frase:hover {
+            background-color: #FF8C00;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        .watermark {
+            display: inline-block;
+            opacity: 0.5;
+            pointer-events: none;
+            margin: 10px;
+            max-width: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dia Nacional de Combate ao Bullying</h1>
+            <div class="date">🗓️ 7 de Abril</div>
+        </header>
+
+        <div class="card">
+            <p id="frase"></p>
+            <button class="btn-nova-frase" onclick="mostrarFrase()">✨ Nova Frase</button>
+        </div>
+
+        <footer>
+            <p>Campanha de Conscientização • Abril/2025</p>
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: -5px; gap: 15px;">
+                <img src="educa_mais_sem_fundo.png" class="watermark" alt="Marca d'água Educa Mais" />
+                <img src="mais_gremios_sem_fundo.png" class="watermark" alt="Marca d'água Mais Grêmios" />
+            </div>
+        </footer>
+    </div>
+    <script>
+        const frases = [
+            "Respeite para ser respeitado.",
+            "Bullying é covardia, não seja cúmplice.",
+            "Gentileza gera gentileza.",
+            "Diferenças nos tornam únicos.",
+            "Não fique calado, denuncie.",
+            "Respeito é a base de tudo.",
+            "Bullying não é brincadeira.",
+            "Seja gentil, mude o mundo.",
+            "A paz começa em você.",
+            "Não machuque, ajude.",
+            "Inclusão é dever de todos.",
+            "Palavras também machucam.",
+            "Respeitar é amar.",
+            "Juntos contra o bullying.",
+            "Sua atitude faz a diferença.",
+            "Acolha, não exclua.",
+            "Ser diferente é normal.",
+            "Diga não à violência.",
+            "Valente é quem respeita.",
+            "O silêncio protege o agressor.",
+            "Escola é lugar de paz.",
+            "Brincadeira de mau gosto não é brincadeira.",
+            "Defenda quem não pode se defender.",
+            "Respeito não se impõe, se constrói.",
+            "Seja o amigo que você gostaria de ter.",
+            "Fora o bullying.",
+            "Amor próprio também é combater o bullying.",
+            "Não julgue, compreenda.",
+            "Sua voz tem poder.",
+            "Construa pontes, não muros.",
+            "A vitimização deve acabar.",
+            "Empatia é a chave.",
+            "Todos merecem respeito.",
+            "Diversidade é riqueza.",
+            "Obrigado por ser gentil.",
+            "Machucar não é legal.",
+            "Pare, pense, respeite.",
+            "Um ato de bondade salva vidas.",
+            "Não seja espectador, seja herói.",
+            "A união vence o bullying.",
+            "Respeito é educação.",
+            "Viva a diversidade.",
+            "Não permita a exclusão.",
+            "Sua atitude define quem você é.",
+            "Sorria, você pode alegrar alguém.",
+            "Justiça começa com respeito.",
+            "Acolhimento é cura.",
+            "Não espalhe ódio.",
+            "Espalhe amor e respeito.",
+            "Ser legal é ser respeitoso.",
+            "Brincadeiras pesadas ferem para sempre.",
+            "O respeito é mútuo.",
+            "Educação é o melhor caminho.",
+            "Liberte-se do bullying.",
+            "Somos todos iguais em direitos.",
+            "A gentileza nunca sai de moda.",
+            "Supere o preconceito.",
+            "Cada ser humano é único.",
+            "Valorize a vida.",
+            "Não baixe a cabeça, levante a voz.",
+            "O bullying não tem vez.",
+            "O amor vence o ódio.",
+            "Pratique a empatia diariamente.",
+            "Errar é humano, respeitar é divino.",
+            "Um por todos, todos por um.",
+            "Combater o bullying é obrigação.",
+            "Não ria, ajude.",
+            "A coragem está em falar.",
+            "Seja luz, não escuridão.",
+            "Amizade verdadeira não humilha.",
+            "Respeite o próximo.",
+            "Diga não à intimidação.",
+            "A vida é feita de escolhas.",
+            "Escolha ser bom.",
+            "Apoie as vítimas.",
+            "Ninguém merece ser humilhado.",
+            "A mudança começa em você.",
+            "Transforme raiva em amor.",
+            "Nunca desista de ser feliz.",
+            "O respeito traz paz.",
+            "Igualdade é respeito.",
+            "Liberdade sem preconceito.",
+            "Sem bullying, a vida é melhor.",
+            "Respeite as opiniões diferentes.",
+            "Ajudar o próximo é nobre.",
+            "Criança feliz não é bulinada.",
+            "Jovem unido vence o medo.",
+            "Medo não combina com escola.",
+            "A escola é nossa.",
+            "Defenda o respeito.",
+            "Não assisto, não apoio.",
+            "Agressão nunca é resposta.",
+            "O perdão cura.",
+            "Bom dia, bom respeito.",
+            "Onde há amor, não há bullying.",
+            "Respeitar é evoluir.",
+            "A violência não resolve nada.",
+            "Seja você, respeite os outros.",
+            "O mundo precisa de paz.",
+            "Comece uma onda de gentileza.",
+            "Intolerância nunca leva a lugar algum.",
+            "A humilhação deixa marcas.",
+            "O respeito apaga cicatrizes.",
+            "Somos uma equipe.",
+            "Não deixe ninguém para trás.",
+            "Importe-se com o próximo.",
+            "Solidariedade é força.",
+            "O bullying envergonha, o respeito honra.",
+            "Seja forte contra o bullying.",
+            "A gentileza é contagiosa.",
+            "Escolha a paz.",
+            "Bullying é crime.",
+            "Respeite o silêncio do outro.",
+            "Gritos não comunicam, machucam.",
+            "Escute com o coração.",
+            "O bullying envenena a alma.",
+            "O respeito alimenta a alma.",
+            "Não seja parte do problema.",
+            "Seja parte da solução.",
+            "O amanhã começa hoje.",
+            "Dignidade para todos.",
+            "Ninguém é melhor que ninguém.",
+            "A força está na união.",
+            "Combata a crueldade.",
+            "A esperança vence o medo.",
+            "Brilhe sem apagar a luz dos outros.",
+            "O respeito é gratuito.",
+            "Doe respeito, receba amor.",
+            "A humildade é poder.",
+            "O orgulho cega.",
+            "Não siga a multidão errada.",
+            "Liderança é servir.",
+            "A bondade move montanhas.",
+            "Respeite as diferenças.",
+            "Somos todos feitos de estrelas.",
+            "O bullying é um monstro.",
+            "Seja o amigo sincero.",
+            "A verdadeira beleza é interior.",
+            "Não julgue pela aparência.",
+            "Respeite o corpo alheio.",
+            "As palavras têm peso.",
+            "Pese suas palavras.",
+            "O silêncio grita.",
+            "Fale alto contra o bullying.",
+            "Proteja os mais fracos.",
+            "O forte protege.",
+            "O fraco agride.",
+            "Seja um guardião da paz.",
+            "O respeito não tem idade.",
+            "O futuro pede respeito.",
+            "Não tenha medo de pedir ajuda.",
+            "Cada ato de bondade conta.",
+            "Um sorriso pode mudar o dia de alguém.",
+            "A bondade é a melhor resposta.",
+            "Seja a mudança que você quer ver no mundo.",
+            "Vencer o bullying começa com você.",
+            "Todos têm o direito de se sentir seguro.",
+            "A amizade é uma força poderosa.",
+            "A empatia é a única saída.",
+            "Quebrar o silêncio é corajoso.",
+            "Você pode fazer a diferença.",
+            "Seja um exemplo a ser seguido.",
+            "Juntos podemos ser mais fortes.",
+            "O respeito é um valor fundamental.",
+            "Espalhe otimismo, não negatividade.",
+            "Cada passo a favor do respeito é importante.",
+            "O silêncio muitas vezes grita mais que palavras.",
+            "Valorize e respeite as pessoas ao seu redor.",
+            "Uma frase de apoio pode salvar vidas.",
+            "Não permita que os outros ditem quem você deve ser.",
+            "Fale sempre a verdade e defenda o que é certo.",
+            "Respeitar os outros começa com respeitar a si mesmo.",
+            "Transforme a dor em força.",
+            "Esteja sempre ao lado das vítimas.",
+            "Incentive novas amizades e encontros positivos.",
+            "Não feche os olhos diante do bullying.",
+            "Não tenha medo de relatar o que está errado.",
+            "Crie um ambiente acolhedor e seguro.",
+            "Seja grato pelas suas amizades.",
+            "Aceite as diferenças como uma forma de evolução.",
+            "Não brinque com os sentimentos dos outros.",
+            "A coragem é o que precisamos para mudar o mundo.",
+            "O respeito deve ser uma prioridade inegociável.",
+            "Se você é vítima de bullying, saiba que você é forte.",
+            "A bondade gera bondade, quebrando o ciclo do ódio.",
+            "Estenda a mão a quem precisa de apoio emocional.",
+            "Todos têm o direito de um dia em paz.",
+            "A vida é preciosa, respeite-a.",
+            "Ser inclusivo é uma via de mão dupla.",
+            "Companheirismo ajuda a combater o bullying.",
+            "Nunca é tarde para agir contra o bullying.",
+            "Cada um pode ser um aliado incrível.",
+            "Empatia é a linguagem do coração.",
+            "Você merece ser tratado com dignidade.",
+            "Todo dia é uma nova oportunidade de fazer o bem.",
+            "Construa um futuro sem bullying.",
+            "Suas palavras podem mudar o mundo.",
+            "Diga não ao ódio e sim ao amor.",
+            "O respeito é o caminho para um mundo melhor.",
+            "Inspire-se e inspire outros a praticar o respeito."
+        ];
+
+        function mostrarFrase() {
+            const randomIndex = Math.floor(Math.random() * frases.length);
+            document.getElementById('frase').textContent = frases[randomIndex];
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarFrase();
+        });
+    </script>
+</body>
+</html>
